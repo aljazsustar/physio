@@ -6,5 +6,5 @@ from patients.models import Patient
 class Test(models.Model):
     test_name = models.CharField(max_length=255)
     fields = models.JSONField()
-    patient = models.ForeignKey(Patient, on_delete=models.PROTECT)
+    patient = models.ForeignKey(Patient, on_delete=models.PROTECT, null=True, blank=True)
 
