@@ -5,6 +5,17 @@ from patients.models import Patient
 
 class Test(models.Model):
     test_name = models.CharField(max_length=255)
-    fields = models.JSONField()
-    patient = models.ForeignKey(Patient, on_delete=models.PROTECT, null=True, blank=True)
+    patient = models.ForeignKey(Patient, on_delete=models.PROTECT)
+
+    def __str__(self):
+        return f'{self.test_name} ({self.id})'
+
+
+class TestAttribute(models.Model):
+    attribute_name = models.CharField(max_length=255)
+    attribute_value = models.FloatField(blank=True, null=True)
+    unit = models.CharField(max_length=63, default=0.0)
+    remarks = models.TextField(blank=True, null=True)
+    test = models.ForeignKey(Test, on_delete=models.PROTECT, related_name='attributes')
+
 

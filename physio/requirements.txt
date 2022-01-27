@@ -1,5 +1,5 @@
 django-filter==21.1
 djangorestframework==3.13.1
 Markdown==3.3.6
-psycopg2
+psycopg2-binary
 python-dotenv
