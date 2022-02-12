@@ -7,3 +7,7 @@ from patients.serializers import PatientSerializer
 class PatientsViewSet(generics.ListCreateAPIView):
     queryset = Patient.objects.all()
     serializer_class = PatientSerializer
+
+class PatientDeleteUpdateView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Patient.objects.all()
+    serializer_class = PatientSerializer
